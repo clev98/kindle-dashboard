@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="user-scalable=no"/>
+  <link href="/static/main.css" rel="stylesheet">
+  <title>Dashboard</title>
+</head>
+<body style="margin-left: 0px; margin-right: 0px;">
+  <table style="width: 599px; height: 799px;">
+    <tr>
+      <h1>Weather</h1>
+      {% for period in weather_periods %}
+      <td colspan="1" id="weather-td">
+        <div id="weather-container"></div>
+          <span id="weather-report"></span>
+            {% if period.precipitation > 0 %}
+              <img src="/static/cloud-with-rain.png" width="25" height="25">
+            {% else %}
+              <img src="/static/weather_sunny.png" width="25" height="25">
+            {% endif %}
+            <h3>{{ period.name }}</h3>
+            <p><h3>Rain Chance: {{ period.precipitation }}%</h3></p>
+            <p><h3>Current: {{ period.current }}&deg;F</h3></p>
+            <p><h3>High: {{ period.high }}&deg;F</h3></p>
+            <p><h3>Low: {{ period.low }}&deg;F</h3></p>
+          </span>
+        </div>
+      </td>
+      {% endfor %}
+    </tr>
+    <div colspan="2" id="weather-update-time"><i>as of {{ update_time }} &mdash; via <a href="https://api.weather.gov/">api.weather.gov</a></i></div>
+    <tr>
+      <td colspan="2" id="transit-td">
+        <h1>Transit</h1>
+        <div id="t-metro-box">
+          {% for train in metro_times %}
+              <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>{{ train.line }} to {{ train.destination }}:</b> {{ train.minutes }} Minutes<h3></p>
+          {% endfor %}
+        </div>
+        <div id="t-bus-box">
+          {% for bus in bus_times %}
+              <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>{{ bus.bus_id }} to {{ bus.destination }}:</b> {{ bus.minutes }} Minutes<h3></p>
+          {% endfor %}
+        </div>
+        <div id="t-alert-box">
+          {% if alerts %}
+              {% for alert in alerts %}
+                  <p><h3><b>Alert:</b> {{ alert.description }}</h3></p>
+              {% endfor %}
+          {% else %}
+              <p><h3><b>No current alerts.</b></h3></p>
+          {% endif %}
+        </div>
+      </td>
+    </tr>
+  </table>
+  <button id="reload" onclick="buttonClick()">Reload</button> &mdash; automatic refresh every <span id="refresh-time">60</span> seconds</i>
+  <div id="l"></div>
+  <script src="/static/main.web.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "minVersion": 2,
+  "manifestVersion": 2,
+  "appVersion": "v1.0.0",
+  "waf": true,
+  "id": "news.clev.dashboard",
+  "name": "Dashboard",
+  "author": "Kit",
+  "description": "Kindle Dashboard",
+  "repo": "https://internal.clev.news",
+  "icon": "WMATA.png",
+  "entrypoint": "index.html"
+}

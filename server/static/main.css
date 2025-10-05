@@ -1,0 +1,55 @@
+button {
+  border-radius: 15px;
+}
+
+td {
+  border: 1px solid;
+  vertical-align: top;
+}
+
+tr {
+  height: 1px;
+}
+
+p {
+  margin: 0 0 0 0;
+}
+
+#weather-container, #t-metro-box, #t-alert-box {
+  display: flex;
+}
+
+#weather-container > span {
+  text-align: left;
+  margin-left: 2px;
+  margin-right: 2px;
+  display: inline-block;
+}
+
+#weather-update-time {
+  font-size: 10pt;
+}
+
+h1 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 16pt;
+}
+
+h2 {
+  font-size: 12pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h3 {
+  font-size: 10pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+img {
+  float: left;
+  width: 25px;
+  height: 25px;
+}

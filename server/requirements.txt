@@ -1,0 +1,7 @@
+Flask
+flask-cors
+requests
+gunicorn
+Jinja2
+python-dotenv
+gtfs-realtime-bindings
