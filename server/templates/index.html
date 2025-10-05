@@ -33,7 +33,7 @@
         <div id="t-metro-box">
           {% if metro_times %}
             {% for train in metro_times %}
-                <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>{{ train.line }} to {{ train.destination }}:</b> {{ train.minutes }} Minutes<h3></p>
+                <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>{{ train.line }} to {{ train.destination }}:</b> {{ train.minutes }} min<h3></p>
             {% endfor %}
           {% else %}
                 <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>No trains :(</b><h3></p>
@@ -44,7 +44,7 @@
         <div id="t-bus-box">
           {% if bus_times %}
             {% for bus in bus_times %}
-                <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>{{ bus.bus_id }} to {{ bus.destination }}:</b> {{ bus.minutes }} Minutes<h3></p>
+                <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>{{ bus.bus_id }} to {{ bus.destination }}:</b> {{ bus.minutes }} min<h3></p>
             {% endfor %}
           {% else %}
                 <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>No buses :(</b><h3></p>
