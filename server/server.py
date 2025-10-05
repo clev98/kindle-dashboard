@@ -348,4 +348,4 @@ def get_weather():
 
 if __name__ == "__main__":
     load_dotenv()
-    server.run("0.0.0.0", 8080, debug=True)
+    server.run("0.0.0.0", 8080, debug=False)

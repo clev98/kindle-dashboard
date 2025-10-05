@@ -8,7 +8,6 @@
 <body style="margin-left: 0px; margin-right: 0px;">
   <table style="width: 599px; height: 799px;">
     <tr>
-      <h1>Weather</h1>
       {% for period in weather_periods %}
       <td colspan="1" id="weather-td">
         <div id="weather-container"></div>
@@ -28,20 +27,33 @@
       </td>
       {% endfor %}
     </tr>
-    <div colspan="2" id="weather-update-time"><i>as of {{ update_time }} &mdash; via <a href="https://api.weather.gov/">api.weather.gov</a></i></div>
+    <div colspan="2" id="update-time">Weather and Transit as of: <i>{{ update_time }}</i></div>
     <tr>
-      <td colspan="2" id="transit-td">
-        <h1>Transit</h1>
+      <td colspan="1" id="transit-td">
         <div id="t-metro-box">
-          {% for train in metro_times %}
-              <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>{{ train.line }} to {{ train.destination }}:</b> {{ train.minutes }} Minutes<h3></p>
-          {% endfor %}
+          {% if metro_times %}
+            {% for train in metro_times %}
+                <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>{{ train.line }} to {{ train.destination }}:</b> {{ train.minutes }} Minutes<h3></p>
+            {% endfor %}
+          {% else %}
+                <p><h3><img src="/static/WMATA.png" width="25" height="25"><b>No trains :(</b><h3></p>
+          {% endif %}
         </div>
+      </td>
+      <td colspan="1" id="transit-td">
         <div id="t-bus-box">
-          {% for bus in bus_times %}
-              <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>{{ bus.bus_id }} to {{ bus.destination }}:</b> {{ bus.minutes }} Minutes<h3></p>
-          {% endfor %}
+          {% if bus_times %}
+            {% for bus in bus_times %}
+                <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>{{ bus.bus_id }} to {{ bus.destination }}:</b> {{ bus.minutes }} Minutes<h3></p>
+            {% endfor %}
+          {% else %}
+                <p><h3><img src="/static/fairfax-connector.jpg" width="25" height="25"><b>No buses :(</b><h3></p>
+          {% endif %}
         </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" id="transit-alerts-td">
         <div id="t-alert-box">
           {% if alerts %}
               {% for alert in alerts %}
