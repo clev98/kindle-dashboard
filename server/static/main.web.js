@@ -1,13 +1,14 @@
-function onResponse() {
-    document.body.innerHTML = this.responseText;
-}
+async function buttonClick() {
+    const url = "http://192.168.1.11:8080/dashboard/";
+    const response = await fetch(url);
 
-function buttonClick() {
-    var req = new XMLHttpRequest();
+    if (!response.ok) {
+        return;
+    }
 
-    req.addEventListener("load", onResponse);
-    req.open("GET", "http://192.168.1.11:8080/dashboard/");
-    req.send();
+    const result = await response.text();
+
+    document.body.innerHTML = result;
 }
 
 if(typeof intId === 'undefined') {
