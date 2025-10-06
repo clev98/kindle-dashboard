@@ -15,15 +15,11 @@ p {
   margin: 0 0 0 0;
 }
 
-#weather-container, #t-metro-box, #t-alert-box {
-  display: flex;
-}
-
-#weather-container > span {
+#weather-container, #t-metro-box, #t-bus-box, #t-alert-box {
   text-align: left;
   margin-left: 2px;
   margin-right: 2px;
-  display: inline-block;
+  display: flex;
 }
 
 #weather-update-time {
